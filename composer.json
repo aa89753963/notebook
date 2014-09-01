@@ -1,0 +1,19 @@
+{
+    "name": "s3/notebook",
+    "authors": [
+        {
+            "name": "dupeng",
+            "email": "277578870@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+	"smarty/smarty": "dev-trunk",
+	"simplon/mysql": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Wispiring\\": "src/"
+        }
+    }
+}
