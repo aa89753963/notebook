@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>NoteBook List</title>
+	<title>{$name}</title>
 </head>
 <body>
 	<table>
         <thead></thead>
         <tbody>
             <tr>
-                <td>fadf</td>
+                <td>{$name}</td>
                 <td>fdasf</td>
                 <td>fdasf</td>
             </tr>

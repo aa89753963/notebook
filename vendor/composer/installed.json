@@ -44,5 +44,52 @@
         "keywords": [
             "templating"
         ]
+    },
+    {
+        "name": "simplon/mysql",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fightbulc/simplon_mysql.git",
+            "reference": "6b4d25baea739a60f7475e831cf4b82f23fceb6d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fightbulc/simplon_mysql/zipball/6b4d25baea739a60f7475e831cf4b82f23fceb6d",
+            "reference": "6b4d25baea739a60f7475e831cf4b82f23fceb6d",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "php": ">=5.3"
+        },
+        "time": "2014-06-22 06:58:17",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Simplon\\Mysql\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Tino Ehrich",
+                "email": "opensource@efides.com",
+                "role": "developer"
+            }
+        ],
+        "description": "Simplon MySQL Library",
+        "homepage": "https://github.com/fightbulc/simplon_mysql",
+        "keywords": [
+            "db",
+            "manager",
+            "mysql",
+            "pdo"
+        ]
     }
 ]

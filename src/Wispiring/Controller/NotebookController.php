@@ -12,14 +12,15 @@ class NotebookController extends AbstractController
        // $result = $this->mysql->query("SELECT * FROM notebook");
 
        // $this->tpl->assign('result', $result);
-
+        
         $this->tpl->assign('name', 'XXXXX');
+        
         $this->tpl->display('index.tpl');
     }
 
     public function viewAction()
     {
-        echo "view";
+        echo "vie1w";
     }
 
     public function addAction()

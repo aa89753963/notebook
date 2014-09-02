@@ -17,13 +17,13 @@ abstract class AbstractController
     public function __construct()
     {
         $smarty = new Smarty();
+
         $smarty->setTemplateDir(SYSYTEM_ROOT . '/templates/default');
         $smarty->setCompileDir(SYSYTEM_ROOT . '/caches/templates_c/');
         // $smarty->setConfigDir('configs/');
         $smarty->setCacheDir(SYSYTEM_ROOT . '/caches/cache/');
-
         $this->tpl = $smarty;
-        
+ 
 
         //$this->mysql = new Mysql();
     }   

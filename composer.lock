@@ -4,8 +4,53 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "87f98cc06bae1a40ebebc6880b3edbb5",
+    "hash": "22df67618bf655946cf99ca892deb739",
     "packages": [
+        {
+            "name": "simplon/mysql",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fightbulc/simplon_mysql.git",
+                "reference": "6b4d25baea739a60f7475e831cf4b82f23fceb6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fightbulc/simplon_mysql/zipball/6b4d25baea739a60f7475e831cf4b82f23fceb6d",
+                "reference": "6b4d25baea739a60f7475e831cf4b82f23fceb6d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Simplon\\Mysql\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tino Ehrich",
+                    "email": "opensource@efides.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "Simplon MySQL Library",
+            "homepage": "https://github.com/fightbulc/simplon_mysql",
+            "keywords": [
+                "db",
+                "manager",
+                "mysql",
+                "pdo"
+            ],
+            "time": "2014-06-22 06:58:17"
+        },
         {
             "name": "smarty/smarty",
             "version": "dev-trunk",
@@ -59,7 +104,8 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "smarty/smarty": 20
+        "smarty/smarty": 20,
+        "simplon/mysql": 20
     },
     "prefer-stable": false,
     "platform": [
