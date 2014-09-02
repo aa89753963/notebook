@@ -13,22 +13,23 @@ class Mysql
     private $db_name;
     private $conn;
     private $charset;
-    /**构造函数
-
+    /**
+    *构造函数
     */
 
-    public function __construct()
+    public function __construct($db_host, $db_user, $db_pwd, $db_name, $charset)
     {
-        $this->db_host = '127.0.0.1';
-        $this->db_user = 'root';
-        $this->db_pwd  = 'root';
-        $this->db_name = 'notebook';
-        $this->charset = 'utf8';
+        $this->db_host = $db_host;
+        $this->db_user = $db_user;
+        $this->db_pwd  = $db_pwd;
+        $this->db_name = $db_name;
+        $this->charset = $charset;
         $this->connect();
         $this->selectDb($this->db_name);
     }
-    /**链接数据库
-
+    /**
+    *链接数据库
+    *@return connect
     */
 
     private function connect()
@@ -36,8 +37,9 @@ class Mysql
         $this->conn = mysql_connect($this->db_host, $this->db_user, $this->db_pwd);
         mysql_set_charset($this->charset);
     }
-    /**选择数据库
-
+    /**
+    *选择数据库
+    *
     */
 
     public function selectDb()
@@ -47,8 +49,8 @@ class Mysql
             echo '数据库不存在';
         }
     }
-    /**发送SQL语句
-
+    /**
+    *发送SQL语句
     */
 
     public function query($sql)
@@ -59,8 +61,8 @@ class Mysql
         return mysql_query($sql);
 
     }
-    /**查询所有信息
-
+    /**
+    *查询所有信息
     */
 
     public function selectAll($sql)
@@ -74,8 +76,8 @@ class Mysql
         }
         return $list;
     }
-    /**查询单条信息
-
+    /**
+    *查询单条信息
     */
 
     public function selectRow($sql)
@@ -87,8 +89,8 @@ class Mysql
         return mysql_fetch_row($rs);
     }
 
-    /**删除操作
-
+    /**
+    *删除操作
     */
 
     public function delete($table, $condition, $url = '')
@@ -96,8 +98,8 @@ class Mysql
         $this->query("DELETE FROM $table WHERE $condition=$url");
     }
 
-    /**析构函数.关闭数据库资源
-
+    /**
+    *析构函数.关闭数据库资源
     */
 
     public function __destruct()

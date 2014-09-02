@@ -3,9 +3,9 @@ namespace Wispiring\Core;
 
 use Wispiring\Core\Template\Template; 
 use Wispiring\Core\Componet\Database\Mysql\Mysql;
-
 use Smarty;
 
+require '../../config.php';
 abstract class AbstractController
 {
 
