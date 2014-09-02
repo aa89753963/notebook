@@ -1,0 +1,14 @@
+add admin-user action{
+	adduser
+	listuser
+	edituser
+	deleteuser
+	viewuser
+}
+user_group_action{
+	addsgroup
+	addcgroup
+	editgroep
+	deletegroup
+	listgroup
+}
