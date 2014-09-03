@@ -1,72 +1,85 @@
 <?php
-namespace Wispiring\Core\Componet\Database\Mysql\Mysql;
+namespace Wispiring\Core\Component\Database\Mysql;
 
-class Mysql
+use  Wispiring\Core\Utils; 
+class Mysql 
 {
-private $conn;
-
-class Mysql
-{
-    private $db_host;
-    private $db_user;
-    private $db_pwd;
-    private $db_name;
+ 
     private $conn;
-    private $charset;
-    /**
-    *构造函数
-    */
-
-    public function __construct($db_host, $db_user, $db_pwd, $db_name, $charset)
-    {
-        $this->db_host = $db_host;
-        $this->db_user = $db_user;
-        $this->db_pwd  = $db_pwd;
-        $this->db_name = $db_name;
-        $this->charset = $charset;
-        $this->connect();
-        $this->selectDb($this->db_name);
+    public $date = array();
+    private static $mysqlInstance;
+    public function __construct($hostname, $username, $userpassword, $dbname)
+    {        
+        $this->connect($hostname, $username, $userpassword,$dbname);
     }
-    /**
-    *链接数据库
-    *@return connect
-    */
 
-    private function connect()
+    public function connect($hostname, $username, $userpassword,$dbname)
     {
-        $this->conn = mysql_connect($this->db_host, $this->db_user, $this->db_pwd);
-        mysql_set_charset($this->charset);
+       $this->conn = mysql_connect($hostname, $username, $userpassword) or die('disconnect');
+       if($this->conn){
+            mysql_select_db($dbname);
+       }
     }
-    /**
-    *选择数据库
-    *
-    */
-
-    public function selectDb()
+    public static function getConnect($dbhost,$dbuser,$dbpwd,$dbname)
     {
-        $db = mysql_select_db($this->db_name);
-        if (!$db) {
-            echo '数据库不存在';
+        if(self::$mysqlInstance) {
+            return self::$mysqlInstance;
         }
+        return self::$mysqlInstance = new Mysql($dbhost,$dbuser,$dbpwd,$dbname);
     }
-    /**
-    *发送SQL语句
-    */
+    public function show($message)//$dbnmae
+    {
+        $sql = "select * from ".$message;
+        $result = mysql_query($sql);
+        $count = 0;
+        while ($row = mysql_fetch_assoc($result))
+        {
+            $date[$count++] = $row;
+        }
+        return $date;
+    }
+    public function insert($table,$message)
+    {
+    
+        $insert='';
+        $date=array();
+        foreach($message as $values)
+        {
+            $insert = $insert.",'".$values."'";
+        }
+        $sql='insert into '.$table.' values(null'.$insert.')';
+        mysql_query($sql);
+        $ID = mysql_insert_id($this->conn);
+        return $id;
+    }
+    public function delete($table,$id)
+    {
+        $sql='delete from '.$table.' where id='.$id;
+        mysql_query($sql);
+        return true;
+    }
+    public function edit($table,$id)
+    {
+           // $sql='update '.$table.' set '.'something.' .'where id=' $id;
+ //       $sql = UPDATE `user_account` SET `id`=[value-1],`username`=[value-2],`userpass`=[value-3],`rds`=[value-4],`rdu`=[value-5],`ds`=[value-6],`du`=[value-7],`cs`=[value-8],`cu`=[value-9] WHERE 1
+    }
+     /**
+     *发送SQL语句
+     */
 
     public function query($sql)
     {
-        if ($sql == "") {
-            echo 'SQL语句错误';
-        }
-        return mysql_query($sql);
-
+    if ($sql == "") {
+        echo 'SQL语句错误';
+    }
+    return mysql_query($sql);
     }
     /**
     *查询所有信息
     */
 
     public function selectAll($sql)
-    {   
+    {
         $rs = $this->query($sql);
         if (!$rs) {
             return false;
@@ -76,35 +89,5 @@ class Mysql
         }
         return $list;
     }
-    /**
-    *查询单条信息
-    */
 
-    public function selectRow($sql)
-    {
-        $rs = $this->query($sql);
-        if (!$rs) {
-            return false;
-        }
-        return mysql_fetch_row($rs);
-    }
-
-    /**
-    *删除操作
-    */
-
-    public function delete($table, $condition, $url = '')
-    {
-        $this->query("DELETE FROM $table WHERE $condition=$url");
-    }
-
-    /**
-    *析构函数.关闭数据库资源
-    */
-
-    public function __destruct()
-    {
-        mysql_close($this->conn);
-    }
 }
-

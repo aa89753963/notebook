@@ -10,7 +10,7 @@
 <body>
 <div class="container">
 <div class="row">
-<form role="form" action="select.php" method="get">
+<form role="form" action="" method="get">
 <div class="form-group col-md-7">
 <label for="name">用户名</label>
 <input type="text" id="name" class="form-control" name="name" placeholder="请输入用户名!"datatype="s5-16" nullmsg="请填写中文名" errormsg="昵称至少5个字符,最多16个字符！" />

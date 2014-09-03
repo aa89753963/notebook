@@ -13,4 +13,8 @@ class DefaultController extends AbstractController
 
        $this->display('index');
     }
+    public function addUser()
+    {
+        
+    }
 }

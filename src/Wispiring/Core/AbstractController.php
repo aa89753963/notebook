@@ -5,7 +5,7 @@ use Wispiring\Core\Template\Template;
 use Wispiring\Core\Componet\Database\Mysql\Mysql;
 use Smarty;
 
-require '../../config.php';
+require '/home/s3/newproject/config.php';
 abstract class AbstractController
 {
 
@@ -24,8 +24,9 @@ abstract class AbstractController
         $smarty->setCacheDir(SYSYTEM_ROOT . '/caches/cache/');
         $this->tpl = $smarty;
  
-
-        //$this->mysql = new Mysql();
+        print_r($cofing);exit;
+        $this->mysql = new Mysql();
+       // print_r($this->Mysql);
     }   
 
     public function getValue($name, $type = 'string')

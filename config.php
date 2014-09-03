@@ -1,6 +1,6 @@
 <?php
 
-return array(
+$config = array(
     'dbhost' => 'localhost',
     'dbuser' => 'root',
     'dbpwd' =>'root',
