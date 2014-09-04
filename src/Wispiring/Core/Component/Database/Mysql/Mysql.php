@@ -1,9 +1,5 @@
 <?php
-namespace Wispiring\Core\Componet\Database\Mysql\Mysql;
-
-class Mysql
-{
-private $conn;
+namespace Wispiring\Core\Component\Database\Mysql;
 
 class Mysql
 {
@@ -13,17 +9,18 @@ class Mysql
     private $db_name;
     private $conn;
     private $charset;
-    /**构造函数
+    /**
+    构造函数
 
     */
 
-    public function __construct()
+    public function __construct($db_host, $db_user, $db_pwd, $db_name, $charset)
     {
-        $this->db_host = '127.0.0.1';
-        $this->db_user = 'root';
-        $this->db_pwd  = 'root';
-        $this->db_name = 'notebook';
-        $this->charset = 'utf8';
+        $this->db_host = $db_host;
+        $this->db_user = $db_user;
+        $this->db_pwd  = $db_pwd;
+        $this->db_name = $db_name;
+        $this->charset = $charset;
         $this->connect();
         $this->selectDb($this->db_name);
     }

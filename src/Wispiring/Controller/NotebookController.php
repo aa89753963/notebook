@@ -3,15 +3,18 @@
 namespace Wispiring\Controller;
 
 use Wispiring\Core\AbstractController;
+use Wispiring\Core\Component\UserModel as User;
+use Wispiring\Core\Config\Config;
 
 class NotebookController extends AbstractController
 {
     public function listAction()
     {
 
-       // $result = $this->mysql->query("SELECT * FROM notebook");
-
-       // $this->tpl->assign('result', $result);
+       $a = new User();
+$config = Config::getInstance();
+$a->getArray($config, $array);
+exit;
         
         $this->tpl->assign('name', 'XXXXX');
         

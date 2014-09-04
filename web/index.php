@@ -1,13 +1,20 @@
 <?php
-
+header("Content-type: text/html; charset=utf-8");
 if (!file_exists('../vendor/autoload.php')) {
     echo "Plz use `php composer.phar install` to initial the project!";
     exit;
 }
 
 require '../vendor/autoload.php';
-
+require '../config.php';
+use Wispiring\Core\Component\Database\Mysql\Mysql;
 use Wispiring\Core\Utils;
+use Wispiring\Core\Config\Config;
+use Wispiring\Core\Component\UserModel;
+$res = Config::getInstance()->setValues($array)->getValues();
+$MysqlRes = new Mysql($res['dbhost'], $res['dbuser'], $res['dbpwd'], $res['dbname'], $res['charset']);
+
+new UserModel($MysqlRes);
 
 define('SYSYTEM_ROOT', realpath(__DIR__ . '/../'));
 

@@ -9,8 +9,8 @@ class DefaultController extends AbstractController
 {
     public function indexAction()
     {
-       $this->getValue('id', 'intgeger');
+       $this->tpl->assign('id', 'intgeger');
 
-       $this->display('index');
+       $this->tpl->display('index');
     }
 }

@@ -3,6 +3,7 @@
 namespace Wispiring;
 
 use Exception;
+use Wispiring\Core\Config\Config;
 
 class Utils
 {
@@ -21,5 +22,9 @@ class Utils
 
         $pageClass = new $pageClassName();
         return call_user_func_array(array($pageClass, $actionName, $idName), $params);
+    }
+    public function getMysql()
+    {
+        $config = getInstance()
     }
 }

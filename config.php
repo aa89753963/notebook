@@ -1,9 +1,9 @@
 <?php
-
-$dbname = 'notebook';
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpassword = '';
-
-$thema = 'default';
-
+$array = array(
+    'dbhost' => 'localhost',
+    'dbuser' => 'root',
+    'dbpwd' => 'root',
+    'dbname' => 'user',
+    'thema' => 'default',
+    'charset' => 'utf8'
+);

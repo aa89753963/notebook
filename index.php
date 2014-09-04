@@ -1,8 +1,12 @@
 <?php
 
 require './vendor/autoload.php';
+require '';
 
 use Wispiring\Utils;
+use Wispiring\Core\Componet\Database\Mysql\Mysql;
+
+new Mysql();
 
 $page   = $_GET['page'];
 $action = $_GET['action'];
