@@ -3,27 +3,22 @@
 namespace Wispiring\Controller;
 
 use Wispiring\Core\AbstractController;
-use Wispiring\Core\Component\UserModel as User;
-use Wispiring\Core\Config\Config;
+use Wispiring\Core\Component\UserModel;
 
 class NotebookController extends AbstractController
 {
     public function listAction()
     {
 
-       $a = new User();
-$config = Config::getInstance();
-$a->getArray($config, $array);
-exit;
-        
-        $this->tpl->assign('name', 'XXXXX');
-        
+        $this->tpl->assign('name', 'XXXXX');       
         $this->tpl->display('index.tpl');
     }
 
-    public function viewAction()
+    public function viewAction($MysqlRes)
     {
-        echo "vie1w";
+        $sql = "SELECT `user_email`,`user`,`age`,`firstname`,`lastname`,`country` FROM `userinfo` WHERE cz=0";
+        $res = $MysqlRes->selectAll($sql);
+        print_r($res);
     }
 
     public function addAction()

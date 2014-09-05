@@ -84,6 +84,11 @@ class Mysql
         return mysql_fetch_row($rs);
     }
 
+    public function insert($sql)
+    {
+        $this->query($sql);
+    }
+
     /**删除操作
 
     */

@@ -7,13 +7,13 @@ use Wispiring\Core\Config\Config;
 
 class Utils
 {
-    public static function router($pageName, $actionName, $idName, $params = array())
+    public static function router($pageName, $actionName, $params = array())
     {
 
         $pageClassName = 'Wispiring\\Controller\\'.ucfirst($pageName);
         $actionName    = $actionName.'Action';
 
-        if (!class_exists($pageClassName) || !method_exists($pageClassName, $actionName) || !is_numeric($idName)) {
+        if (!class_exists($pageClassName) || !method_exists($pageClassName, $actionName)) {
             throw new Exception(
                 sprintf('Page "%s" not found', $pageName),
                 404
@@ -21,10 +21,6 @@ class Utils
         }
 
         $pageClass = new $pageClassName();
-        return call_user_func_array(array($pageClass, $actionName, $idName), $params);
-    }
-    public function getMysql()
-    {
-        $config = getInstance()
+        return call_user_func_array(array($pageClass, $actionName,), $params);
     }
 }
