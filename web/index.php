@@ -14,9 +14,6 @@ use Wispiring\Core\Component\UserModel;
 
 $res = Config::getInstance()->setValues($array)->getValues();
 
-
-
-
 define('SYSYTEM_ROOT', realpath(__DIR__ . '/../'));
 
 $page   = isset($_GET['page']) ? $_GET['page'] : 'Default';

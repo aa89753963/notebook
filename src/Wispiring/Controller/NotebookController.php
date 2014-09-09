@@ -10,7 +10,7 @@ class NotebookController extends AbstractController
     public function listAction()
     {
 
-        $this->tpl->assign('name', 'XXXXX');       
+        $this->tpl->assign('name', 'XXXXXsadsadsadsads');       
         $this->tpl->display('index.tpl');
     }
 
